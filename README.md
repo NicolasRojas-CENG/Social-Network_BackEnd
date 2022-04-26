@@ -37,7 +37,37 @@ Run a terminal window within the project file, and write the following command: 
 - Finished the README.md file.
 - Uploaded the walkthrough videos to the README.md file.
 # <a name="Preview"> Site/App Preview </a>
-I will add this later
+Walkthrough - User Routes
+
+https://user-images.githubusercontent.com/55503463/165408845-8acd9355-adf0-4dc7-b29d-ca54cd2fa3f4.mp4
+
+
+Walkthrough - Thought Routes
+
+https://user-images.githubusercontent.com/55503463/165409030-1b37d951-c332-4944-b7ac-dcee1ae8f13d.mp4
+
+
+Walkthrough - Friend Routes
+
+https://user-images.githubusercontent.com/55503463/165408655-a1a79a04-1931-4d68-b92a-58d30e09fc90.mp4
+
+
+Walkthrough - Reaction Routes
+
+https://user-images.githubusercontent.com/55503463/165408639-14a9a0b6-d1d6-471e-831c-346200b68a31.mp4
+
+
+Walkthrough - Validation
+
+https://user-images.githubusercontent.com/55503463/165408594-591b6de1-92a4-4053-a1d3-481071b29825.mp4
+
+
+Walkthrough - Bonus
+
+https://user-images.githubusercontent.com/55503463/165408547-b540252d-a4ae-4c94-9402-146365541be7.mp4
+
+
+
 # <a name="Questions"> Questions </a>
   If you have any questions, feel free to contact me through GitHub at
   [nicolasrojas-ceng](https://github.com/nicolasrojas-ceng). <br>
