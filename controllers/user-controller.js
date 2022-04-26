@@ -1,5 +1,5 @@
 //Require Users Model.
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
     //Get all users.
@@ -66,15 +66,32 @@ const userController = {
     //Delete an user by id.
     deleteUser({params}, res) {
         User.findOneAndDelete({_id: params.id})
-        .select('-__v')
-        .then(dbUsersData => {
-            if(!dbUsersData) {
-                res.status(404).json({message: 'No user found with this id!'});
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id.'});
                 return;
             }
-            res.json({message: "The user has been deleted!"});
+            return dbUserData;
         })
-        .catch(err => res.status(400).json(err));
+        .then(dbUserData => {
+            User.updateMany({
+                _id: {
+                    $in: dbUserData.friends
+                }
+            }, {
+                $pull: {
+                    friends: params.userId
+                }
+            })
+            .then(() => {
+                //deletes user's thought associated with id
+                Thought.deleteMany({username: dbUserData.username})
+                .then(() => {res.json({message: 'User and related information deleted successfully.'});})
+            })
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        })
     },
 
     //Add a friend to a user by id.
