@@ -73,8 +73,9 @@ const userController = {
             }
             return dbUserData;
         })
-        .then(dbUserData => {
-            User.updateMany({
+        .then( async dbUserData => {
+            await Thought.deleteMany({username: dbUserData._id}) //Autodelete related thoughts.
+            await User.updateMany({ //Autodelete from related friend lists.
                 _id: {
                     $in: dbUserData.friends
                 }
@@ -83,11 +84,7 @@ const userController = {
                     friends: params.userId
                 }
             })
-            .then(() => {
-                //deletes user's thought associated with id
-                Thought.deleteMany({username: dbUserData.username})
-                .then(() => {res.json({message: 'User and related information deleted successfully.'});})
-            })
+            res.json({message: "User deleted from friends lists, and associated thoughts also deleted."})
         })
         .catch(err => {
             res.status(400).json(err);
