@@ -7,19 +7,31 @@ const {
 } = require('../../controllers/thought-controller');
 
 //Directs to the path /api/thoughts.
-router.route('/').get(getAllThoughts);
+//This gets all thoughts.
+router.route('/')
+.get(getAllThoughts);
 
 //Directs to the path /api/thoughts/:id.
-router.route('/:id').get(getThoughtById).put(updateThought).delete(deleteThought);
+//This gets, updates, or deletes a thought.
+router.route('/:id')
+.get(getThoughtById)
+.put(updateThought)
+.delete(deleteThought);
 
 //Directs to the path /api/thoughts/:userId.
-router.route('/:userId').post(createThought);
+//This creates a new thought.
+router.route('/:userId')
+.post(createThought);
 
 //Directs to the path /api/thoughts/:thoughtId/reactions.
-router.route('/:thoughtId/reactions').post(addReaction);
+//This creates a new reaction.
+router.route('/:thoughtId/reactions')
+.post(addReaction);
 
 //Directs to the path /api/thoughts/:thoughtId/reactionId.
-router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
+//This deletes a reaction.
+router.route('/:thoughtId/reactions/:reactionId')
+.delete(deleteReaction);
 
 //Export module router
 module.exports = router;

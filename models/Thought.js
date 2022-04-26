@@ -1,8 +1,8 @@
-// Require Mongoos
+//Require Mongoose and helper functions for date formating.
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-//ReactionsSchema
+//Reaction Schema.
 const ReactionSchema = new Schema(
     {
         reactionId: {
@@ -31,6 +31,7 @@ const ReactionSchema = new Schema(
     }
 );
 
+//Thought Schema.
 const ThoughtSchema = new Schema(
     {
     thoughtText: {
@@ -59,6 +60,7 @@ const ThoughtSchema = new Schema(
     }
 )
 
+//Virtual for reaction count of a thought.
 ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
